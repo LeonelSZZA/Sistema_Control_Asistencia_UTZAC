@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&family=Roboto:wght@100;300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Paleta De Colores */
+:root {
+    --white: #fff;
+}
+
+.boton-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.icon-sca {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+}
+
+.icon-sca-dark {
+    width: 20px;
+    height: 20px;
+}
