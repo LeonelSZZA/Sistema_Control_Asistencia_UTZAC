@@ -21,10 +21,12 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="primary-color">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand text-white" href="{{ url('/') }}">
                     Bitácora De Asistencia
+                    <img src="https://cdn-icons-png.flaticon.com/512/2936/2936886.png" alt="Icono de Gimnasio"
+                        class="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -44,33 +46,38 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Iniciar Sesión') }}
+                                        <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png"
+                                            alt="Icono de Inicio de Sesión" class="icon-sca">
+                                    </a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item">
-                                <a href="{{ route('home') }}" class="nav-link">Home</a>
+                                <a href="{{ route('home') }}" class="nav-link text-white" id="link-hover">Asistencias
+                                    <img src="https://cdn-icons-png.flaticon.com/512/2991/2991106.png" alt="Icono de Asistencias" class="icon-sca">
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('assistants.index') }}" class="nav-link">Usuarios</a>
+                                <a href="{{ route('assistants.index') }}" class="nav-link text-white"
+                                    id="link-hover">Usuarios
+                                    <img src="https://cdn-icons-png.flaticon.com/512/681/681494.png" alt="Icono de Usuarios" class="icon-sca">
+                                </a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#"
+                                    role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    v-pre>
                                     {{ Auth::user()->name }}
+                                    <img src="https://cdn-icons-png.flaticon.com/512/565/565591.png"
+                                        alt="Icono de Configuración" class="icon-sca">
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Cerrar Sesión') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

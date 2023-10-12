@@ -23,16 +23,6 @@ return new class extends Migration
             $table->string('estado')->default('Activo');
             $table->timestamps();
         });
-
-        DB::table('assistants')->insert([
-            'matricula' => '482100078',
-            'nombre' => 'Edgar Leonel',
-            'apellido_paterno' => 'Acevedo',
-            'apellido_materno' => 'Cuevas',
-            'carrera' => 'Tecnologías de la Información - Desarrollo de Software Multiplataforma',
-            'grado' => '7',
-            'grupo' => 'A'
-        ]);
     }
 
     /**

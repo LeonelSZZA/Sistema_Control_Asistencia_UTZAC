@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card shadow-lg">
-                    <div class="card-header">
+                    <div class="card-header text-white" id="primary-color">
                         <div class="row">
                             <div class="col-md-6 mt-1">
                                 ➤ Todos Los Usuarios Inactivos
@@ -14,6 +14,7 @@
                                 <!-- Usuarios Activos -->
                                 <a href="{{ route('assistants.index') }}" class="btn btn-success btn-sm mx-1">
                                     Usuarios Activos
+                                    <img src="https://cdn-icons-png.flaticon.com/512/681/681494.png" alt="Icono de Usuarios" class="icon-sca">
                                 </a>
                             </div>
                         </div>

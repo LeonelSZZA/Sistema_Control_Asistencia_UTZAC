@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card shadow-lg">
-                    <div class="card-header">
+                    <div class="card-header text-white" id="primary-color">
                         Información Sobre Tu Registro De Entrada
                     </div>
                     <div class="card-body">
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="row">
+                        <div class="row d-flex justify-content-around">
                             <!-- Día -->
                             <div class="col-md-2 mb-2">
                                 <div class="form-outline">
@@ -103,26 +103,12 @@
                                         value="{{ $horaEntrada }}" disabled />
                                 </div>
                             </div>
-                            <!-- Hora De Salida -->
-                            <div class="col-md-2 mb-2">
-                                <div class="form-outline">
-                                    <label class="form-label">Hora De Salida</label>
-                                    <input type="text" class="form-control form-control-lg"
-                                        value="null" disabled />
-                                </div>
-                            </div>
-                            <!-- Total De Horas -->
-                            <div class="col-md-2 mb-2">
-                                <div class="form-outline">
-                                    <label class="form-label">Total De Horas</label>
-                                    <input type="text" class="form-control form-control-lg"
-                                        value="null" disabled />
-                                </div>
-                            </div>
                         </div>
                         <div class="d-grid gap-2 mt-3">
                             <a href="{{ route('viewWelcome') }}" class="btn btn-success">
                                 Volver Al Inicio
+                                <img src="https://cdn-icons-png.flaticon.com/512/13/13964.png" alt="Icono de Volver"
+                                    class="icon-sca">
                             </a>
                         </div>
                     </div>

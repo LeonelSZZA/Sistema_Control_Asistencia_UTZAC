@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card shadow-lg">
-                    <div class="card-header">
+                    <div class="card-header text-white" id="primary-color">
                         Usuario Encontrado: {{ $assistant->matricula }} | {{ $assistant->nombre }}
                         {{ $assistant->apellido_paterno }} {{ $assistant->apellido_materno }}
                     </div>
@@ -83,9 +83,15 @@
                         </div>
                         <div class="d-grid gap-2 mt-3">
                             <a href="{{ route('assistants.index') }}" class="btn btn-success mb-2">Regresar Al Panel De
-                                Usuarios</a>
+                                Usuarios
+                                <img src="https://cdn-icons-png.flaticon.com/512/13/13964.png" alt="Icono de Volver"
+                                    class="icon-sca">
+                            </a>
                             <a href="{{ route('assistants.edit', $assistant->id) }}" class="btn btn-primary mb-2">Editar
-                                Este Usuario</a>
+                                Este Usuario
+                                <img src="https://cdn-icons-png.flaticon.com/512/709/709652.png" alt="Icono de Edición"
+                                    class="icon-sca">
+                            </a>
                         </div>
                     </div>
                 </div>

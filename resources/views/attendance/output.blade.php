@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card shadow-lg">
-                    <div class="card-header">
+                    <div class="card-header text-white" id="primary-color">
                         Información Sobre Tu Registro De Salida
                     </div>
                     <div class="card-body">
@@ -123,6 +123,8 @@
                         <div class="d-grid gap-2 mt-3">
                             <a href="{{ route('viewWelcome') }}" class="btn btn-danger">
                                 Volver Al Inicio
+                                <img src="https://cdn-icons-png.flaticon.com/512/13/13964.png" alt="Icono de Volver"
+                                    class="icon-sca">
                             </a>
                         </div>
                     </div>

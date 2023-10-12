@@ -15,22 +15,24 @@
                 @endif
 
                 <div class="card shadow-lg">
-                    <div class="card-header text-center">
+                    <div class="card-header text-center text-white fs-5" id="primary-color">
                         Bitácora De Asistencia
+                        <img src="https://cdn-icons-png.flaticon.com/512/2921/2921075.png" alt="Icono de Registro de Asistencia"
+                            class="icon-sca">
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12 mt-2">
-                                <h3 class="h3 text-center">
+                                <h1 class="h1 text-center">
                                     {{ \Carbon\Carbon::now('GMT-6')->format('d') }}
                                     {{ \Carbon\Carbon::now('GMT-6')->format('F') }}
                                     {{ \Carbon\Carbon::now('GMT-6')->format('Y') }}
-                                </h3>
+                                </h1>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 mt-2">
-                                <h5 class="h5 text-center" id="current-time"></h5>
+                                <h1 class="display-6 text-center" id="current-time"></h1>
                             </div>
                         </div>
                         <div class="row">
@@ -39,17 +41,19 @@
                                 <button type="button" class="btn btn-success btn-lg mx-1" data-bs-toggle="modal"
                                     data-bs-target="#exampleModalRA">
                                     Registrar Asistencia
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3596/3596092.png"
+                                        alt="Icono de Entrada" class="icon-sca">
                                 </button>
                                 <!-- Modal: Registrar Asistencia -->
                                 <div class="modal fade" id="exampleModalRA" tabindex="-1"
                                     aria-labelledby="exampleModalRALabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalRALabel">
+                                            <div class="modal-header bg-success">
+                                                <h5 class="modal-title text-white" id="exampleModalRALabel">
                                                     Registrar Asistencia Por Matrícula
                                                 </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
@@ -75,7 +79,9 @@
                                                     </div>
                                                     <div class="d-grid gap-2 pt-2">
                                                         <button class="btn btn-success" type="submit">
-                                                            Continuar
+                                                            Encontrar Usuario
+                                                            <img src="https://cdn-icons-png.flaticon.com/512/795/795724.png"
+                                                                alt="Icono de Búsqueda" class="icon-sca">
                                                         </button>
                                                     </div>
                                                 </form>
@@ -87,17 +93,19 @@
                                 <button type="button" class="btn btn-danger btn-lg mx-1 mt-2" data-bs-toggle="modal"
                                     data-bs-target="#exampleModalRS">
                                     Registrar Salida
+                                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png"
+                                        alt="Icono de Salida" class="icon-sca">
                                 </button>
                                 <!-- Modal: Registrar Salida -->
                                 <div class="modal fade" id="exampleModalRS" tabindex="-1"
                                     aria-labelledby="exampleModalRSLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalRSLabel">
+                                            <div class="modal-header bg-danger">
+                                                <h5 class="modal-title text-white" id="exampleModalRSLabel">
                                                     Registrar Salida Por Matrícula
                                                 </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
@@ -122,7 +130,9 @@
                                                     </div>
                                                     <div class="d-grid gap-2 pt-2">
                                                         <button class="btn btn-danger" type="submit">
-                                                            Continuar
+                                                            Encontrar Usuario
+                                                            <img src="https://cdn-icons-png.flaticon.com/512/795/795724.png"
+                                                                alt="Icono de Búsqueda" class="icon-sca">
                                                         </button>
                                                     </div>
                                                 </form>
@@ -138,7 +148,8 @@
         </div>
     </div>
     <!-- Modal: Logotipo -->
-    <button type="button" class="btn btn-dark btn-lg mx-1 boton-flotante" data-bs-toggle="modal" data-bs-target="#exampleModalL">
+    <button type="button" class="btn btn-dark btn-lg mx-1 boton-flotante" data-bs-toggle="modal"
+        data-bs-target="#exampleModalL">
         Logotipo
     </button>
     <!-- Modal: Logotipo -->
@@ -152,7 +163,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    
+
                 </div>
             </div>
         </div>

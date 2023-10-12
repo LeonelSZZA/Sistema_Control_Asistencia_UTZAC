@@ -14,10 +14,10 @@
                     </div>
                 @endif
 
-                <div class="card">
-                    <div class="card-header">
+                <div class="card shadow-lg">
+                    <div class="card-header" id="primary-color">
                         <div class="row">
-                            <div class="col-md-6 mt-1">
+                            <div class="col-md-6 mt-1 text-white fs-5">
                                 ➤ Panel De Asistencias
                             </div>
                             <div class="col-md-6 d-flex flex-row-reverse">
@@ -25,18 +25,20 @@
                                 <button type="button" class="btn btn-danger btn-sm mx-1" data-bs-toggle="modal"
                                     data-bs-target="#exampleModalGRI">
                                     Generar Reporte Individual
+                                    <img src="https://cdn-icons-png.flaticon.com/512/8992/8992459.png"
+                                        alt="Icono de Usuario" class="icon-sca">
                                 </button>
                                 <!-- Modal: Generar Reporte Individual -->
                                 <div class="modal fade" id="exampleModalGRI" tabindex="-1"
                                     aria-labelledby="exampleModalGRILabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalGRILabel">
+                                            <div class="modal-header bg-danger">
+                                                <h5 class="modal-title text-white" id="exampleModalGRILabel">
                                                     Generar Historial PDF Individual
                                                 </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
+                                                <button type="button" class="btn-close btn-close-white"
+                                                    data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <p class="p">
@@ -81,6 +83,8 @@
                                                     <div class="d-grid gap-2 pt-2">
                                                         <button class="btn btn-danger" type="submit">
                                                             Generar Reporte
+                                                            <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png"
+                                                                alt="Icono de Descarga" class="icon-sca">
                                                         </button>
                                                     </div>
                                                 </form>
@@ -92,18 +96,19 @@
                                 <button type="button" class="btn btn-danger btn-sm mx-1" data-bs-toggle="modal"
                                     data-bs-target="#exampleModalGRG">
                                     Generar Reporte General
+                                    <img src="https://cdn-icons-png.flaticon.com/512/681/681494.png" alt="Icono de Usuarios" class="icon-sca">
                                 </button>
                                 <!-- Modal: Generar Reporte General -->
                                 <div class="modal fade" id="exampleModalGRG" tabindex="-1"
                                     aria-labelledby="exampleModalGRGLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalGRGLabel">
+                                            <div class="modal-header bg-danger">
+                                                <h5 class="modal-title text-white" id="exampleModalGRGLabel">
                                                     Generar Historial PDF General
                                                 </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
+                                                <button type="button" class="btn-close btn-close-white"
+                                                    data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <p class="p">
@@ -135,6 +140,8 @@
                                                     <div class="d-grid gap-2 pt-2">
                                                         <button class="btn btn-danger" type="submit">
                                                             Generar Reporte
+                                                            <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png"
+                                                                alt="Icono de Descarga" class="icon-sca">
                                                         </button>
                                                     </div>
                                                 </form>
@@ -149,8 +156,10 @@
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="card shadow-lg">
-                                    <div class="card-header text-center">
+                                    <div class="card-header text-center text-white" id="primary-color">
                                         Gráfica De Asistencias Mensuales
+                                        <img src="https://cdn-icons-png.flaticon.com/512/2838/2838764.png" alt="Icono Mensual"
+                                        class="icon-sca">
                                     </div>
                                     <div class="card-body">
                                         <canvas id="asistenciaChart" height="160px"></canvas>
@@ -160,29 +169,29 @@
                             <div class="col-md-4">
                                 <div class="card-deck">
                                     <div class="card shadow-lg">
-                                        <div class="card-header text-center">Asistentes El Día De Hoy:
+                                        <div class="card-header text-center text-white" id="primary-color">Asistentes El Día De Hoy:
                                             {{ \Carbon\Carbon::now('GMT-6')->format('d') }}
                                             {{ \Carbon\Carbon::now('GMT-6')->format('F') }}
                                             {{ \Carbon\Carbon::now('GMT-6')->format('Y') }}</div>
                                         <div class="card-body text-center">
-                                            <p class="card-text">{{ $cantidadUsuariosAsistieron }} Asistentes</p>
+                                            <p class="card-text">{{ $cantidadUsuariosAsistieron }} Asistente(s)</p>
                                         </div>
                                     </div>
                                     <div class="card shadow-lg mt-3">
-                                        <div class="card-header text-center">Total De Asistencias</div>
+                                        <div class="card-header text-center text-white" id="primary-color">Total De Asistencias</div>
                                         <div class="card-body text-center">
                                             <p class="card-text">{{ $dataAttendance[0]->total_asistencias }} Asistencias
                                             </p>
                                         </div>
                                     </div>
                                     <div class="card shadow-lg mt-3">
-                                        <div class="card-header text-center">Total De Horas Asistidas</div>
+                                        <div class="card-header text-center text-white" id="primary-color">Total De Horas Asistidas</div>
                                         <div class="card-body text-center">
                                             <p class="card-text">{{ $dataAttendance[0]->total_horas }} Horas</p>
                                         </div>
                                     </div>
                                     <div class="card shadow-lg mt-3">
-                                        <div class="card-header text-center">Total De Usuarios Activos</div>
+                                        <div class="card-header text-center text-white" id="primary-color">Total De Usuarios Activos</div>
                                         <div class="card-body text-center">
                                             <p class="card-text">{{ $users }} Usuarios</p>
                                         </div>
@@ -204,8 +213,8 @@
             datasets: [{
                 label: 'Asistencias Mensuales',
                 data: {!! json_encode($datosAsistencias) !!},
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(186, 45, 59, 1)',
+                borderColor: 'rgba(255, 255, 255, 255)',
                 borderWidth: 1
             }]
         };

@@ -10,7 +10,7 @@ class AssistantController extends Controller
 {
     public function index()
     {
-        $assistants = Assistant::where('estado', 'Activo')->paginate(10);
+        $assistants = Assistant::where('estado', 'Activo')->paginate(6);
 
         return view('assistants.index', ['assistants' => $assistants]);
     }
@@ -66,7 +66,7 @@ class AssistantController extends Controller
 
     public function viewInactive()
     {
-        $usersInactive = Assistant::where('estado', 'Inactivo')->paginate(10);
+        $usersInactive = Assistant::where('estado', 'Inactivo')->paginate(6);
 
         return view('assistants.inactive', ['usersInactive' => $usersInactive]);
     }

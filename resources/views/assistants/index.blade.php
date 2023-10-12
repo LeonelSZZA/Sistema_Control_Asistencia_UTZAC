@@ -22,32 +22,36 @@
                 @endif
 
                 <div class="card shadow-lg">
-                    <div class="card-header">
+                    <div class="card-header" id="primary-color">
                         <div class="row">
-                            <div class="col-md-6 mt-1">
+                            <div class="col-md-6 mt-1 text-white">
                                 ➤ Últimos Usuarios Registrados
                             </div>
                             <div class="col-md-6 d-flex flex-row-reverse">
                                 <!-- Usuarios Dados De Baja -->
                                 <a href="{{ route('viewInactive') }}" class="btn btn-danger btn-sm mx-1">
                                     Usuarios Dados De Baja
+                                    <img src="https://cdn-icons-png.flaticon.com/512/6067/6067158.png" alt="Icono de Baja"
+                                        class="icon-sca">
                                 </a>
                                 <!-- Modal: Buscar Usuario -->
                                 <button type="button" class="btn btn-primary btn-sm mx-1" data-bs-toggle="modal"
                                     data-bs-target="#exampleModalBU">
                                     Buscar Usuario
+                                    <img src="https://cdn-icons-png.flaticon.com/512/795/795724.png" alt="Icono de Búsqueda"
+                                        class="icon-sca">
                                 </button>
                                 <!-- Modal: Buscar Usuario -->
                                 <div class="modal fade" id="exampleModalBU" tabindex="-1"
                                     aria-labelledby="exampleModalBULabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalBULabel">
+                                            <div class="modal-header bg-primary">
+                                                <h5 class="modal-title text-white" id="exampleModalBULabel">
                                                     Buscar Usuario Por Matrícula
                                                 </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
+                                                <button type="button" class="btn-close btn-close-white"
+                                                    data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <p class="p">
@@ -63,7 +67,8 @@
                                                                 <label class="form-label text-dark" for="matricula">
                                                                     Matrícula
                                                                 </label>
-                                                                <input type="number" id="matricula" class="form-control form-control-lg"
+                                                                <input type="number" id="matricula"
+                                                                    class="form-control form-control-lg"
                                                                     placeholder="Ej. 482100078" name="matricula" required
                                                                     autofocus />
                                                             </div>
@@ -72,6 +77,8 @@
                                                     <div class="d-grid gap-2 pt-2">
                                                         <button class="btn btn-primary" type="submit">
                                                             Encontrar Usuario
+                                                            <img src="https://cdn-icons-png.flaticon.com/512/795/795724.png"
+                                                                alt="Icono de Búsqueda" class="icon-sca">
                                                         </button>
                                                     </div>
                                                 </form>
@@ -82,6 +89,8 @@
                                 <!-- Registrar Nuevo Usuario -->
                                 <a href="{{ route('assistants.create') }}" class="btn btn-success btn-sm mx-1">
                                     Registrar Nuevo Usuario
+                                    <img src="https://cdn-icons-png.flaticon.com/512/4202/4202263.png"
+                                        alt="Icono de Registro de Usuario" class="icon-sca">
                                 </a>
                             </div>
                         </div>
@@ -109,6 +118,8 @@
                                             <a class="btn btn-primary btn-sm mx-1"
                                                 href="{{ route('assistants.edit', $assistant->id) }}">
                                                 Editar
+                                                <img src="https://cdn-icons-png.flaticon.com/512/709/709652.png"
+                                                    alt="Icono de Edición" class="icon-sca">
                                             </a>
                                         </td>
                                     </tr>
