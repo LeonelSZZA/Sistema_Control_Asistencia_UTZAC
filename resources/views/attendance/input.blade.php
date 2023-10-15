@@ -10,10 +10,14 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <!-- Matrícula -->
+                            <!-- Matrícula || Clave -->
                             <div class="col-md-3 mb-2">
                                 <div class="form-outline">
-                                    <label class="form-label">Matrícula</label>
+                                    @if ($assistant->tipo_usuario === 'Externo' || $assistant->tipo_usuario === 'Personal')
+                                        <label class="form-label" for="matricula">Clave</label>
+                                    @else
+                                        <label class="form-label" for="matricula">Matrícula</label>
+                                    @endif
                                     <input type="text" class="form-control form-control-lg"
                                         value="{{ $assistant->matricula }}" disabled />
                                 </div>
@@ -43,31 +47,37 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <!-- Carrera -->
-                            <div class="col-md-8 mb-2">
-                                <div class="form-outline">
-                                    <label class="form-label">Carrera</label>
-                                    <input type="text" class="form-control form-control-lg"
-                                        value="{{ $assistant->carrera }}" disabled />
+                        <div class="row d-flex justify-content-around">
+                            @if ($assistant->tipo_usuario === 'Externo')
+                            @else
+                                <!-- Carrera -->
+                                <div class="col-md-8 mb-2">
+                                    <div class="form-outline">
+                                        <label class="form-label">Carrera</label>
+                                        <input type="text" class="form-control form-control-lg"
+                                            value="{{ $assistant->carrera }}" disabled />
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- Grado -->
-                            <div class="col-md-2 mb-2">
-                                <div class="form-outline">
-                                    <label class="form-label">Grado</label>
-                                    <input type="text" class="form-control form-control-lg"
-                                        value="{{ $assistant->grado }}" disabled />
+                            @endif
+                            @if ($assistant->tipo_usuario === 'Externo' || $assistant->tipo_usuario === 'Personal')
+                            @else
+                                <!-- Grado -->
+                                <div class="col-md-2 mb-2">
+                                    <div class="form-outline">
+                                        <label class="form-label">Grado</label>
+                                        <input type="text" class="form-control form-control-lg"
+                                            value="{{ $assistant->grado }}" disabled />
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- Grupo -->
-                            <div class="col-md-2 mb-2">
-                                <div class="form-outline">
-                                    <label class="form-label">Grupo</label>
-                                    <input type="text" class="form-control form-control-lg"
-                                        value="{{ $assistant->grupo }}" disabled />
+                                <!-- Grupo -->
+                                <div class="col-md-2 mb-2">
+                                    <div class="form-outline">
+                                        <label class="form-label">Grupo</label>
+                                        <input type="text" class="form-control form-control-lg"
+                                            value="{{ $assistant->grupo }}" disabled />
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                         <hr>
                         <div class="row d-flex justify-content-around">
@@ -99,8 +109,8 @@
                             <div class="col-md-2 mb-2">
                                 <div class="form-outline">
                                     <label class="form-label">Hora De Entrada</label>
-                                    <input type="text" class="form-control form-control-lg"
-                                        value="{{ $horaEntrada }}" disabled />
+                                    <input type="text" class="form-control form-control-lg" value="{{ $horaEntrada }}"
+                                        disabled />
                                 </div>
                             </div>
                         </div>

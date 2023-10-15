@@ -37,7 +37,7 @@
         }
 
         .fix {
-         font-size: 18px;   
+            font-size: 18px;
         }
 
         .tabla th,
@@ -80,7 +80,25 @@
     <table class="tabla">
         <thead>
             <tr>
-                <th>Carrera</th>
+                <th>Otros</th>
+                <th>Asistencias</th>
+                <th>Horas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($dataOthers as $others)
+                <tr>
+                    <td>{{ $others->tipo_usuario }}</td>
+                    <td>{{ $others->total_asistencias }}</td>
+                    <td>{{ $others->total_horas }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>Carreras</th>
                 <th>Asistencias</th>
                 <th>Horas</th>
             </tr>

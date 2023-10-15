@@ -43,7 +43,7 @@
                                             <div class="modal-body">
                                                 <p class="p">
                                                     Ingrese el periodo de tiempo inicial y final junto con la matrícula
-                                                    de un estudiante para conocer su historial de asistencia.
+                                                    de un estudiante o la clave de una persona para conocer su historial de asistencia.
                                                 </p>
                                                 <form action="{{ route('reportIndividual') }}" method="GET">
                                                     @csrf
@@ -72,9 +72,9 @@
                                                         <div class="col-md-12 mb-2">
                                                             <div class="form-outline">
                                                                 <label class="form-label text-dark" for="matricula">
-                                                                    Matrícula
+                                                                    Matrícula | Clave
                                                                 </label>
-                                                                <input type="number" id="matricula"
+                                                                <input type="text" id="matricula"
                                                                     class="form-control form-control-lg"
                                                                     placeholder="Ej. 482100078" name="matricula" required />
                                                             </div>

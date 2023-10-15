@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Assistant;
-use App\Models\Attendance;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -93,10 +92,19 @@ class PDFController extends Controller
             )
             ->whereBetween('fecha_asistencia', [$dateStart, $dateEnd])
             ->where('assistants.estado', 'Activo')
+            ->where('assistants.tipo_usuario', 'Estudiante')
             ->groupBy('assistants.carrera')
             ->get();
 
-        $pdf = Pdf::loadView('PDF.general', compact('users', 'dataAttendance', 'dataCareers', 'dateStart', 'dateEnd'));
+        $dataOthers = DB::table('assists')
+        ->join('assistants', 'assists.assistant_id', '=', 'assistants.id')
+            ->select('tipo_usuario', DB::raw('COUNT(*) as total_asistencias'), DB::raw('SUM(total_horas) as total_horas'))
+            ->whereBetween('fecha_asistencia', [$dateStart, $dateEnd])
+            ->whereIn('tipo_usuario', ['Externo', 'Personal'])
+            ->groupBy('tipo_usuario')
+            ->get();
+
+        $pdf = Pdf::loadView('PDF.general', compact('users', 'dataAttendance', 'dataCareers', 'dataOthers', 'dateStart', 'dateEnd'));
 
         $namePDF = 'Reporte General' . '.pdf';
 

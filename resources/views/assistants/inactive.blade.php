@@ -23,7 +23,7 @@
                         <table class="table table-responsive table-hover text-center align-items-center">
                             <thead>
                                 <tr class="text-center">
-                                    <th>Matrícula</th>
+                                    <th>Matrícula | Clave</th>
                                     <th>Nombre(s)</th>
                                     <th>A. Paterno</th>
                                     <th>A. Materno</th>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Assistant;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\MessageBag;
 
 class AssistantController extends Controller
@@ -34,7 +35,7 @@ class AssistantController extends Controller
 
         Assistant::create($request->all());
 
-        return redirect()->route('assistants.index')->with('success', 'Usuario Registrado Correctamente.');
+        return redirect()->route('assistants.index')->with('success', 'Estudiante Registrado Correctamente.');
     }
 
     public function show()
@@ -86,5 +87,79 @@ class AssistantController extends Controller
 
             return redirect()->back()->withErrors($errors);
         }
+    }
+
+    public function viewExternal()
+    {
+        $registrationNumber = Session::get('registration_number', 1);
+
+        $externalNumber = 'EXTERNO-' . $registrationNumber;
+
+        return view('assistants.external', compact('externalNumber'));
+    }
+
+    public function viewPersonal()
+    {
+        $registrationNumber = Session::get('registration_number_personal', 1);
+
+        $personalNumber = 'PERSONAL-' . $registrationNumber;
+
+        return view('assistants.personal', compact('personalNumber'));
+    }
+
+    public function createExternal(Request $request)
+    {
+        $request->validate([
+            'nombre' => ['required', 'string'],
+            'apellido_paterno' => ['required', 'string'],
+            'apellido_materno' => ['required', 'string'],
+        ]);
+
+        $registrationNumber = Session::get('registration_number', 1);
+        $externalNumber = 'EXTERNO-' . $registrationNumber;
+
+        $assistant = new Assistant();
+        $assistant->matricula = $externalNumber;
+        $assistant->nombre = $request->nombre;
+        $assistant->apellido_paterno = $request->apellido_paterno;
+        $assistant->apellido_materno = $request->apellido_materno;
+        $assistant->carrera = null;
+        $assistant->grado = null;
+        $assistant->grupo = null;
+        $assistant->tipo_usuario = "Externo";
+        $assistant->save();
+
+        $registrationNumber++;
+        Session::put('registration_number', $registrationNumber);
+
+        return redirect()->route('assistants.index')->with('success', 'Usuario Externo Registrado Correctamente.');
+    }
+
+    public function createPersonal(Request $request)
+    {
+        $request->validate([
+            'nombre' => ['required', 'string'],
+            'apellido_paterno' => ['required', 'string'],
+            'apellido_materno' => ['required', 'string'],
+        ]);
+
+        $registrationNumber = Session::get('registration_number_personal', 1);
+        $personalNumber = 'PERSONAL-' . $registrationNumber;
+
+        $assistant = new Assistant();
+        $assistant->matricula = $personalNumber;
+        $assistant->nombre = $request->nombre;
+        $assistant->apellido_paterno = $request->apellido_paterno;
+        $assistant->apellido_materno = $request->apellido_materno;
+        $assistant->carrera = $request->carrera;
+        $assistant->grado = null;
+        $assistant->grupo = null;
+        $assistant->tipo_usuario = "Personal";
+        $assistant->save();
+
+        $registrationNumber++;
+        Session::put('registration_number_personal', $registrationNumber);
+
+        return redirect()->route('assistants.index')->with('success', 'Personal Registrado Correctamente.');
     }
 }

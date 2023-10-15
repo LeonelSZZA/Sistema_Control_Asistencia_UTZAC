@@ -17,10 +17,11 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('apellido_paterno');
             $table->string('apellido_materno');
-            $table->string('carrera');
-            $table->string('grado');
-            $table->string('grupo');
+            $table->string('carrera')->nullable();
+            $table->string('grado')->nullable();
+            $table->string('grupo')->nullable();
             $table->string('estado')->default('Activo');
+            $table->string('tipo_usuario')->default('Estudiante');
             $table->timestamps();
         });
     }

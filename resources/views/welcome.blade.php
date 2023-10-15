@@ -51,14 +51,14 @@
                                         <div class="modal-content">
                                             <div class="modal-header bg-success">
                                                 <h5 class="modal-title text-white" id="exampleModalRALabel">
-                                                    Registrar Asistencia Por Matrícula
+                                                    Registrar asistencia por Matrícula o CLave
                                                 </h5>
                                                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <p class="p">
-                                                    Ingresa tu matrícula para corroborar tus datos y registrar tu
+                                                    Ingresa tu matrícula o clave para corroborar tus datos y registrar tu
                                                     asistencia.
                                                 </p>
                                                 <form action="{{ route('input') }}" method="POST">
@@ -68,9 +68,9 @@
                                                         <div class="col-md-12 mb-2">
                                                             <div class="form-outline">
                                                                 <label class="form-label text-dark" for="matricula">
-                                                                    Matrícula
+                                                                    Matrícula | Clave
                                                                 </label>
-                                                                <input type="number" id="matricula"
+                                                                <input type="text" id="matricula"
                                                                     class="form-control form-control-lg"
                                                                     placeholder="Ej. 482100078" name="matricula" required
                                                                     autofocus />
@@ -103,14 +103,14 @@
                                         <div class="modal-content">
                                             <div class="modal-header bg-danger">
                                                 <h5 class="modal-title text-white" id="exampleModalRSLabel">
-                                                    Registrar Salida Por Matrícula
+                                                    Registrar salida por Matrícula o Clave
                                                 </h5>
                                                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <p class="p">
-                                                    Ingresa tu matrícula para corroborar tus datos y registrar tu salida.
+                                                    Ingresa tu matrícula o clave para corroborar tus datos y registrar tu salida.
                                                 </p>
                                                 <form action="{{ route('output') }}" method="POST">
                                                     @csrf
@@ -119,9 +119,9 @@
                                                         <div class="col-md-12 mb-2">
                                                             <div class="form-outline">
                                                                 <label class="form-label text-dark" for="matricula">
-                                                                    Matrícula
+                                                                    Matrícula | Clave
                                                                 </label>
-                                                                <input type="number" id="matricula"
+                                                                <input type="text" id="matricula"
                                                                     class="form-control form-control-lg"
                                                                     placeholder="Ej. 482100078" name="matricula" required
                                                                     autofocus />

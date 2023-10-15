@@ -24,10 +24,10 @@
                 <div class="card shadow-lg">
                     <div class="card-header" id="primary-color">
                         <div class="row">
-                            <div class="col-md-6 mt-1 text-white">
+                            <div class="col-md-4 mt-1 text-white">
                                 ➤ Últimos Usuarios Registrados
                             </div>
-                            <div class="col-md-6 d-flex flex-row-reverse">
+                            <div class="col-md-8 d-flex flex-row-reverse">
                                 <!-- Usuarios Dados De Baja -->
                                 <a href="{{ route('viewInactive') }}" class="btn btn-danger btn-sm mx-1">
                                     Usuarios Dados De Baja
@@ -48,14 +48,14 @@
                                         <div class="modal-content">
                                             <div class="modal-header bg-primary">
                                                 <h5 class="modal-title text-white" id="exampleModalBULabel">
-                                                    Buscar Usuario Por Matrícula
+                                                    Buscar usuario por Matrícula o Clave
                                                 </h5>
                                                 <button type="button" class="btn-close btn-close-white"
                                                     data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <p class="p">
-                                                    Ingresa la matrícula de un estudiante que esté inscrito en el gimnasio
+                                                    Ingresa la matrícula de un estudiante o la clave de una persona que esté inscrito en el gimnasio
                                                     para poder acceder a su información y actualizarla.
                                                 </p>
                                                 <form action="{{ route('searchUser') }}" method="POST">
@@ -65,9 +65,9 @@
                                                         <div class="col-md-12 mb-2">
                                                             <div class="form-outline">
                                                                 <label class="form-label text-dark" for="matricula">
-                                                                    Matrícula
+                                                                    Matrícula | Clave
                                                                 </label>
-                                                                <input type="number" id="matricula"
+                                                                <input type="text" id="matricula"
                                                                     class="form-control form-control-lg"
                                                                     placeholder="Ej. 482100078" name="matricula" required
                                                                     autofocus />
@@ -86,12 +86,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Registrar Nuevo Usuario -->
-                                <a href="{{ route('assistants.create') }}" class="btn btn-success btn-sm mx-1">
-                                    Registrar Nuevo Usuario
-                                    <img src="https://cdn-icons-png.flaticon.com/512/4202/4202263.png"
+                                <div class="dropdown">
+                                    <button class="btn btn-success btn-sm mx-1 dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Seleccionar Registro De Usuarios
+                                        <img src="https://cdn-icons-png.flaticon.com/512/4202/4202263.png"
                                         alt="Icono de Registro de Usuario" class="icon-sca">
-                                </a>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{{ route('assistants.create') }}">Estudiantes</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('viewExternal') }}">Externos</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('viewPersonal') }}">Personal</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -99,7 +106,7 @@
                         <table class="table table-responsive table-hover text-center align-items-center">
                             <thead>
                                 <tr class="text-center">
-                                    <th>Matrícula</th>
+                                    <th>Matrícula | Clave</th>
                                     <th>Nombre(s)</th>
                                     <th>A. Paterno</th>
                                     <th>A. Materno</th>

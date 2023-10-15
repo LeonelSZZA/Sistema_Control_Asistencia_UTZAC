@@ -56,12 +56,23 @@
         <div class="subtitulo">Período: {{ $dateStart }} | {{ $dateEnd }}</div>
     </div>
     <div class="info">
-        <p><b>Matrícula: </b>{{ $user->matricula }}</p>
+        @if ($user->tipo_usuario === 'Externo' || $user->tipo_usuario === 'Personal')
+            <p><b>Clave: </b>{{ $user->matricula }}</p>
+        @else
+            <p><b>Matrícula: </b>{{ $user->matricula }}</p>
+        @endif
         <p><b>Nombre: </b>{{ $user->nombre }} {{ $user->apellido_paterno }} {{ $user->apellido_materno }}</p>
-        <p><b>Carrera </b>{{ $user->carrera }}</p>
-        <p><b>Grado: </b>{{ $user->grado }}</p>
-        <p><b>Grupo: </b>{{ $user->grupo }}</p>
+        @if ($user->tipo_usuario === 'Externo')
+        @else
+            <p><b>Carrera </b>{{ $user->carrera }}</p>
+        @endif
+        @if ($user->tipo_usuario === 'Externo' || $user->tipo_usuario === 'Personal')
+        @else
+            <p><b>Grado: </b>{{ $user->grado }}</p>
+            <p><b>Grupo: </b>{{ $user->grupo }}</p>
+        @endif
         <p><b>Estado: </b>{{ $user->estado }}</p>
+        <p><b>Usuario: </b>{{ $user->tipo_usuario }}</p>
     </div>
     <table class="tabla">
         <thead>
@@ -88,12 +99,12 @@
         </thead>
         <tbody>
             @foreach ($assists as $attendance)
-            <tr>
-                <td>{{ $attendance->fecha_asistencia }}</td>
-                <td>{{ $attendance->hora_entrada }}</td>
-                <td>{{ $attendance->hora_salida }}</td>
-                <td>{{ $attendance->total_horas }}</td>
-            </tr>
+                <tr>
+                    <td>{{ $attendance->fecha_asistencia }}</td>
+                    <td>{{ $attendance->hora_entrada }}</td>
+                    <td>{{ $attendance->hora_salida }}</td>
+                    <td>{{ $attendance->total_horas }}</td>
+                </tr>
             @endforeach
         </tbody>
     </table>

@@ -26,6 +26,14 @@ Route::get('/assistants/inactive', [AssistantController::class, 'viewInactive'])
 
 Route::post('/search-user', [AssistantController::class, 'searchUser'])->name('searchUser')->middleware('auth');
 
+Route::get('/assistants/external', [AssistantController::class, 'viewExternal'])->name('viewExternal');
+
+Route::get('/assistants/personal', [AssistantController::class, 'viewPersonal'])->name('viewPersonal');
+
+Route::post('/create-external', [AssistantController::class, 'createExternal'])->name('createExternal');
+
+Route::post('/create-personal', [AssistantController::class, 'createPersonal'])->name('createPersonal');
+
 Route::resource('/assistants', AssistantController::class)->middleware('auth');
 
 Route::post('/process-entrance', [AttendanceController::class, 'input'])->name('input');
