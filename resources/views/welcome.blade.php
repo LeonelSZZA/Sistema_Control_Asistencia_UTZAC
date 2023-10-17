@@ -148,22 +148,24 @@
         </div>
     </div>
     <!-- Modal: Logotipo -->
-    <button type="button" class="btn btn-dark btn-lg mx-1 boton-flotante" data-bs-toggle="modal"
+    <button type="button" class="btn btn-lg mx-1 text-white boton-flotante" data-bs-toggle="modal" id="primary-color"
         data-bs-target="#exampleModalL">
-        Logotipo
+        <img src="https://cdn-icons-png.flaticon.com/512/1/1176.png" alt="Icono de Información" class="icon-sca">
     </button>
     <!-- Modal: Logotipo -->
     <div class="modal fade" id="exampleModalL" tabindex="-1" aria-labelledby="exampleModalLLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLLabel">
+                <div class="modal-header bg-dark">
+                    <h5 class="modal-title text-white" id="exampleModalLLabel">
                         Acerca De...
                     </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-
+                <div class="modal-body text-center">
+                    <h5 class="card-title">Sistema de Control de Asistencia del Gimnasio UTZAC</h5>
+                    <p class="card-text mt-3">Desarrollado Por:</p>
+                    <h6 class="card-text mt-3">Edgar Leonel Acevedo Cuevas🦝</h6>
                 </div>
             </div>
         </div>

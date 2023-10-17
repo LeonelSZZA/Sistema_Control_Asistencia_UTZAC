@@ -19,7 +19,7 @@
                                         <label class="form-label" for="matricula">Clave</label>
                                         <input type="text" id="matricula"
                                             class="form-control form-control-lg @error('matricula') is-invalid @enderror"
-                                            name="matricula" value="{{ $externalNumber  }}"
+                                            name="matricula" value="{{ $clue  }}"
                                             disabled />
                                         @error('matricula')
                                             <span class="invalid-feedback text-center" role="alert">

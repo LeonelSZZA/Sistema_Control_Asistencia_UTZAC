@@ -91,20 +91,24 @@ class AssistantController extends Controller
 
     public function viewExternal()
     {
-        $registrationNumber = Session::get('registration_number', 1);
+        $number = Assistant::max('id');
 
-        $externalNumber = 'EXTERNO-' . $registrationNumber;
+        $lastNumber = $number + 1;
 
-        return view('assistants.external', compact('externalNumber'));
+        $clue = 'EXTERNO-' . $lastNumber;
+
+        return view('assistants.external', ['clue' => $clue]);
     }
 
     public function viewPersonal()
     {
-        $registrationNumber = Session::get('registration_number_personal', 1);
+        $number = Assistant::max('id');
 
-        $personalNumber = 'PERSONAL-' . $registrationNumber;
+        $lastNumber = $number + 1;
 
-        return view('assistants.personal', compact('personalNumber'));
+        $clue = 'PERSONAL-' . $lastNumber;
+
+        return view('assistants.personal', ['clue' => $clue]);
     }
 
     public function createExternal(Request $request)
@@ -115,11 +119,14 @@ class AssistantController extends Controller
             'apellido_materno' => ['required', 'string'],
         ]);
 
-        $registrationNumber = Session::get('registration_number', 1);
-        $externalNumber = 'EXTERNO-' . $registrationNumber;
+        $number = Assistant::max('id');
+
+        $lastNumber = $number + 1;
+
+        $clue = 'EXTERNO-' . $lastNumber;
 
         $assistant = new Assistant();
-        $assistant->matricula = $externalNumber;
+        $assistant->matricula = $clue;
         $assistant->nombre = $request->nombre;
         $assistant->apellido_paterno = $request->apellido_paterno;
         $assistant->apellido_materno = $request->apellido_materno;
@@ -128,9 +135,6 @@ class AssistantController extends Controller
         $assistant->grupo = null;
         $assistant->tipo_usuario = "Externo";
         $assistant->save();
-
-        $registrationNumber++;
-        Session::put('registration_number', $registrationNumber);
 
         return redirect()->route('assistants.index')->with('success', 'Usuario Externo Registrado Correctamente.');
     }
@@ -143,11 +147,14 @@ class AssistantController extends Controller
             'apellido_materno' => ['required', 'string'],
         ]);
 
-        $registrationNumber = Session::get('registration_number_personal', 1);
-        $personalNumber = 'PERSONAL-' . $registrationNumber;
+        $number = Assistant::max('id');
+
+        $lastNumber = $number + 1;
+
+        $clue = 'PERSONAL-' . $lastNumber;
 
         $assistant = new Assistant();
-        $assistant->matricula = $personalNumber;
+        $assistant->matricula = $clue;
         $assistant->nombre = $request->nombre;
         $assistant->apellido_paterno = $request->apellido_paterno;
         $assistant->apellido_materno = $request->apellido_materno;
@@ -156,10 +163,7 @@ class AssistantController extends Controller
         $assistant->grupo = null;
         $assistant->tipo_usuario = "Personal";
         $assistant->save();
-
-        $registrationNumber++;
-        Session::put('registration_number_personal', $registrationNumber);
-
+        
         return redirect()->route('assistants.index')->with('success', 'Personal Registrado Correctamente.');
     }
 }

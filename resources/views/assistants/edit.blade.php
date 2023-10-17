@@ -95,15 +95,64 @@
                                                 class="form-select form-select-lg @error('carrera') is-invalid @enderror"
                                                 id="carrera" name="carrera">
                                                 <option selected>{{ $assistant->carrera }}</option>
-                                                <option
-                                                    value="Tecnologías de la Información - Desarrollo de Software Multiplataforma">
-                                                    Tecnologías de la Información - Desarrollo de Software Multiplataforma
+                                                <!-- TSU -->
+                                                <option value="TSU Tecnologías de la Información">
+                                                    TSU Tecnologías de la Información
                                                 </option>
-                                                <option value="Tecnologías de la Información - Redes">
-                                                    Tecnologías de la Información - Redes
+                                                <option value="TSU Procesos Industriales">
+                                                    TSU Procesos Industriales
                                                 </option>
-                                                <option value="Tecnologías de la Información - Multimedia">
-                                                    Tecnologías de la Información - Multimedia
+                                                <option value="TSU Desarrollo de Negocios">
+                                                    TSU Desarrollo de Negocios
+                                                </option>
+                                                <option value="TSU Mantenimiento Industrial">
+                                                    TSU Mantenimiento Industrial
+                                                </option>
+                                                <option value="TSU Mecatronica">
+                                                    TSU Mecatronica
+                                                </option>
+                                                <option value="TSU Energías Renovables">
+                                                    TSU Energías Renovables
+                                                </option>
+                                                <option value="TSU Minería ">
+                                                    TSU Minería
+                                                </option>
+                                                <option value="TSU Administración Capital Humano">
+                                                    TSU Administración Capital Humano
+                                                </option>
+                                                <option value="TSU Terapia Física">
+                                                    TSU Terapia Física
+                                                </option>
+                                                <option value="TSU Agricultura Sustentable y Protegida">
+                                                    TSU Agricultura Sustentable y Protegida
+                                                </option>
+                                                <!-- Ingeniería -->
+                                                <option value="ING Tecnologías de la Información">
+                                                    ING Tecnologías de la Información
+                                                </option>
+                                                <option value="ING Procesos y Operaciones  Industriales">
+                                                    ING Procesos y Operaciones Industriales
+                                                </option>
+                                                <option value="ING Desarrollo de Negocios e Innovación">
+                                                    ING Desarrollo de Negocios e Innovación
+                                                </option>
+                                                <option value="ING Mantenimiento Industrial">
+                                                    ING Mantenimiento Industrial
+                                                </option>
+                                                <option value="ING Mecatronica">
+                                                    ING Mecatronica
+                                                </option>
+                                                <option value="ING Energías Renovables">
+                                                    ING Energías Renovables
+                                                </option>
+                                                <option value="ING Minería">
+                                                    ING Minería
+                                                </option>
+                                                <option value="ING Gestión del Capital Humano">
+                                                    ING Gestión del Capital Humano
+                                                </option>
+                                                <option value="ING Terapia Física">
+                                                    ING Terapia Física
                                                 </option>
                                             </select>
                                             @error('carrera')
