@@ -97,14 +97,62 @@ class PDFController extends Controller
             ->get();
 
         $dataOthers = DB::table('assists')
-        ->join('assistants', 'assists.assistant_id', '=', 'assistants.id')
+            ->join('assistants', 'assists.assistant_id', '=', 'assistants.id')
             ->select('tipo_usuario', DB::raw('COUNT(*) as total_asistencias'), DB::raw('SUM(total_horas) as total_horas'))
             ->whereBetween('fecha_asistencia', [$dateStart, $dateEnd])
             ->whereIn('tipo_usuario', ['Externo', 'Personal'])
             ->groupBy('tipo_usuario')
             ->get();
 
-        $pdf = Pdf::loadView('PDF.general', compact('users', 'dataAttendance', 'dataCareers', 'dataOthers', 'dateStart', 'dateEnd'));
+        $dataExternal = DB::table('assists')
+            ->join('assistants', 'assists.assistant_id', '=', 'assistants.id')
+            ->select(
+                'assistants.matricula',
+                DB::raw('MAX(assistants.nombre) as nombre'),
+                DB::raw('MAX(assistants.apellido_paterno) as apellido_paterno'),
+                DB::raw('MAX(assistants.apellido_materno) as apellido_materno'),
+                DB::raw('SUM(1) as total_asistencias'),
+                DB::raw('SUM(assists.total_horas) as total_horas')
+            )
+            ->whereBetween('fecha_asistencia', [$dateStart, $dateEnd])
+            ->where('assistants.estado', 'Activo')
+            ->where('assistants.tipo_usuario', 'Externo')
+            ->groupBy('assistants.matricula')
+            ->get();
+
+        $dataPersonal = DB::table('assists')
+            ->join('assistants', 'assists.assistant_id', '=', 'assistants.id')
+            ->select(
+                'assistants.matricula',
+                DB::raw('MAX(assistants.nombre) as nombre'),
+                DB::raw('MAX(assistants.apellido_paterno) as apellido_paterno'),
+                DB::raw('MAX(assistants.apellido_materno) as apellido_materno'),
+                DB::raw('SUM(1) as total_asistencias'),
+                DB::raw('SUM(assists.total_horas) as total_horas')
+            )
+            ->whereBetween('fecha_asistencia', [$dateStart, $dateEnd])
+            ->where('assistants.estado', 'Activo')
+            ->where('assistants.tipo_usuario', 'Personal')
+            ->groupBy('assistants.matricula')
+            ->get();
+
+        $dataEstudents = DB::table('assists')
+            ->join('assistants', 'assists.assistant_id', '=', 'assistants.id')
+            ->select(
+                'assistants.matricula',
+                DB::raw('MAX(assistants.nombre) as nombre'),
+                DB::raw('MAX(assistants.apellido_paterno) as apellido_paterno'),
+                DB::raw('MAX(assistants.apellido_materno) as apellido_materno'),
+                DB::raw('SUM(1) as total_asistencias'),
+                DB::raw('SUM(assists.total_horas) as total_horas')
+            )
+            ->whereBetween('fecha_asistencia', [$dateStart, $dateEnd])
+            ->where('assistants.estado', 'Activo')
+            ->where('assistants.tipo_usuario', 'Estudiante')
+            ->groupBy('assistants.matricula')
+            ->get();
+
+        $pdf = Pdf::loadView('PDF.general', compact('users', 'dataAttendance', 'dataCareers', 'dataOthers', 'dataEstudents', 'dataExternal', 'dataPersonal', 'dateStart', 'dateEnd'));
 
         $namePDF = 'Reporte General' . '.pdf';
 

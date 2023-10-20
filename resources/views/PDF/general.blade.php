@@ -113,6 +113,78 @@
             @endforeach
         </tbody>
     </table>
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>Clave Externa</th>
+                <th>Nombre</th>
+                <th>A. P</th>
+                <th>A. M</th>
+                <th>Asistencias</th>
+                <th>Horas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($dataExternal as $external)
+                <tr>
+                    <td>{{ $external->matricula }}</td>
+                    <td>{{ $external->nombre }}</td>
+                    <td>{{ $external->apellido_paterno }}</td>
+                    <td>{{ $external->apellido_paterno }}</td>
+                    <td>{{ $external->total_asistencias }}</td>
+                    <td>{{ $external->total_horas }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>Clave Personal</th>
+                <th>Nombre</th>
+                <th>A. P</th>
+                <th>A. M</th>
+                <th>Asistencias</th>
+                <th>Horas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($dataPersonal as $personal)
+                <tr>
+                    <td>{{ $personal->matricula }}</td>
+                    <td>{{ $personal->nombre }}</td>
+                    <td>{{ $personal->apellido_paterno }}</td>
+                    <td>{{ $personal->apellido_paterno }}</td>
+                    <td>{{ $personal->total_asistencias }}</td>
+                    <td>{{ $personal->total_horas }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>Matrícula</th>
+                <th>Nombre</th>
+                <th>A. P</th>
+                <th>A. M</th>
+                <th>Asistencias</th>
+                <th>Horas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($dataEstudents as $estudent)
+                <tr>
+                    <td>{{ $estudent->matricula }}</td>
+                    <td>{{ $estudent->nombre }}</td>
+                    <td>{{ $estudent->apellido_paterno }}</td>
+                    <td>{{ $estudent->apellido_paterno }}</td>
+                    <td>{{ $estudent->total_asistencias }}</td>
+                    <td>{{ $estudent->total_horas }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 </body>
 
 </html>

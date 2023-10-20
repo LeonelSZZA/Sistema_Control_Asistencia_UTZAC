@@ -166,6 +166,7 @@
                     <h5 class="card-title">Sistema de Control de Asistencia del Gimnasio UTZAC</h5>
                     <p class="card-text mt-3">Desarrollado Por:</p>
                     <h6 class="card-text mt-3">Edgar Leonel Acevedo Cuevas🦝</h6>
+                    <p class="card-text mt-3">+52 492 492 05 23 &#149; leonelasetto@gmail.com</p>
                 </div>
             </div>
         </div>
