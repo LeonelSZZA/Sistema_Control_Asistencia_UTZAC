@@ -47,6 +47,12 @@
             font-weight: bold;
             margin-top: 10px;
         }
+
+        thead {
+            background: #000;
+            color: #fff;
+            height: 70px;
+        }
     </style>
 </head>
 

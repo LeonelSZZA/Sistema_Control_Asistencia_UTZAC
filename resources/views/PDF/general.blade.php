@@ -51,6 +51,12 @@
             font-weight: bold;
             margin-top: 10px;
         }
+
+        thead {
+            background: #000;
+            color: #fff;
+            height: 70px;
+        }
     </style>
 </head>
 
@@ -116,10 +122,11 @@
     <table class="tabla">
         <thead>
             <tr>
-                <th>Clave Externa</th>
+                <th colspan="4">Información sobre Personas Externas</th>
+            </tr>
+            <tr>
+                <th>Clave</th>
                 <th>Nombre</th>
-                <th>A. P</th>
-                <th>A. M</th>
                 <th>Asistencias</th>
                 <th>Horas</th>
             </tr>
@@ -128,9 +135,8 @@
             @foreach ($dataExternal as $external)
                 <tr>
                     <td>{{ $external->matricula }}</td>
-                    <td>{{ $external->nombre }}</td>
-                    <td>{{ $external->apellido_paterno }}</td>
-                    <td>{{ $external->apellido_paterno }}</td>
+                    <td>{{ $external->nombre }} {{ $external->apellido_paterno }} {{ $external->apellido_materno }}
+                    </td>
                     <td>{{ $external->total_asistencias }}</td>
                     <td>{{ $external->total_horas }}</td>
                 </tr>
@@ -140,10 +146,11 @@
     <table class="tabla">
         <thead>
             <tr>
-                <th>Clave Personal</th>
+                <th colspan="4">Información sobre Personal UTZAC</th>
+            </tr>
+            <tr>
+                <th>Clave</th>
                 <th>Nombre</th>
-                <th>A. P</th>
-                <th>A. M</th>
                 <th>Asistencias</th>
                 <th>Horas</th>
             </tr>
@@ -152,9 +159,8 @@
             @foreach ($dataPersonal as $personal)
                 <tr>
                     <td>{{ $personal->matricula }}</td>
-                    <td>{{ $personal->nombre }}</td>
-                    <td>{{ $personal->apellido_paterno }}</td>
-                    <td>{{ $personal->apellido_paterno }}</td>
+                    <td>{{ $personal->nombre }} {{ $personal->apellido_paterno }} {{ $personal->apellido_materno }}
+                    </td>
                     <td>{{ $personal->total_asistencias }}</td>
                     <td>{{ $personal->total_horas }}</td>
                 </tr>
@@ -164,10 +170,11 @@
     <table class="tabla">
         <thead>
             <tr>
+                <th colspan="4">Información sobre Estudiantes</th>
+            </tr>
+            <tr>
                 <th>Matrícula</th>
                 <th>Nombre</th>
-                <th>A. P</th>
-                <th>A. M</th>
                 <th>Asistencias</th>
                 <th>Horas</th>
             </tr>
@@ -176,9 +183,8 @@
             @foreach ($dataEstudents as $estudent)
                 <tr>
                     <td>{{ $estudent->matricula }}</td>
-                    <td>{{ $estudent->nombre }}</td>
-                    <td>{{ $estudent->apellido_paterno }}</td>
-                    <td>{{ $estudent->apellido_paterno }}</td>
+                    <td>{{ $estudent->nombre }} {{ $estudent->apellido_paterno }} {{ $estudent->apellido_materno }}
+                    </td>
                     <td>{{ $estudent->total_asistencias }}</td>
                     <td>{{ $estudent->total_horas }}</td>
                 </tr>
